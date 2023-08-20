@@ -1,8 +1,11 @@
+import java.util.List;
+
 public class Invoice {
     private String nomeCliente;
     private double valor;
     private String data;
     private InvoiceStatus status;
+    private List<Payment> payments;
 
     public Invoice(String nome, double valor, String data) {
         this.nomeCliente = nome;
@@ -29,5 +32,9 @@ public class Invoice {
 
     public void setStatus(InvoiceStatus status) {
         this.status = status;
+    }
+
+    public List<Payment> getPagamentos() {
+        return this.payments;
     }
 }
