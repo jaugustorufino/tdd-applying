@@ -1,18 +1,17 @@
 package org.taskmanager;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 public class TaskList {
 
-    private List<Task> tasks;
+    private Map<UUID, Task> tasks;
 
     public TaskList() {
-        this.tasks = new ArrayList<Task>();
+        this.tasks = new LinkedHashMap<>();
     }
 
     public void addTask(Task newTask) {
-        this.tasks.add(newTask);
+        this.tasks.put(newTask.getId(), newTask);
     }
 
     public int size() {
