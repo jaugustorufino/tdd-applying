@@ -11,7 +11,6 @@ import java.util.List;
 public class PaymentProcessorTest {
 
     private Invoice fatura;
-    private Invoice faturaNaoPaga;
     private List<PaymentSlip> listaDeBoletosFaturaPaga;
     private List<PaymentSlip> listaDeBoletosFaturaNaoPaga;
     private PaymentProcessor processador;
