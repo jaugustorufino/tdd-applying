@@ -25,10 +25,18 @@ public class TaskListTest {
     }
 
     @Test
-    public void testAddTaskToTaskList() {
+    public void testAddTask() {
         Task task = new Task("Title", "Description", "19/02/2023", "Priority");
         taskList.addTask(task);
 
         assertEquals(1, taskList.size());
+    }
+
+    @Test
+    public void testFindTask() {
+        Task task = new Task("Title", "Description", "19/02/2023", "Priority");
+        taskList.addTask(task);
+
+        assertEquals(taskList.findTask(task.getId()), task);
     }
 }
