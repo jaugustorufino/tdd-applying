@@ -38,5 +38,10 @@ public class TaskListTest {
         taskList.addTask(task);
 
         assertEquals(taskList.findTask(task.getId()), task);
+
+        Task otherTask = new Task("Other Title", "Other Description", "20/08/2023", "Other Priority");
+        taskList.addTask(otherTask);
+
+        assertEquals(taskList.findTask(otherTask.getId()), otherTask);
     }
 }
