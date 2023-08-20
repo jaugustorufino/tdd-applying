@@ -6,7 +6,13 @@ public class TaskTest {
 
     @Test
     public void testTaskCreation() {
-        Task task = new Task();
+        Task task = new Task("Title", "Description", "19/02/2023", "Priority");
+
         Assertions.assertNotNull(task);
+
+        Assertions.assertEquals(task.getTitle(), "Title");
+        Assertions.assertEquals(task.getDescription(), "Description");
+        Assertions.assertEquals(task.getDueDate(), "19/02/2023");
+        Assertions.assertEquals(task.getPriority(), "Priority");
     }
 }
