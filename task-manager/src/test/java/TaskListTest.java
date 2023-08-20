@@ -1,5 +1,6 @@
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+import org.taskmanager.TaskList;
 
 public class TaskListTest {
 
@@ -8,5 +9,4 @@ public class TaskListTest {
         TaskList taskList = new TaskList();
         Assertions.assertNotNull(taskList);
     }
-
 }
