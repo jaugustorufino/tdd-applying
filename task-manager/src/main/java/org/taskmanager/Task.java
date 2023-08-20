@@ -1,6 +1,10 @@
 package org.taskmanager;
 
+import java.util.UUID;
+
 public class Task {
+
+    private UUID id;
 
     private String title;
     private String description;
@@ -8,10 +12,15 @@ public class Task {
     private String priority;
 
     public Task(String title, String description, String dueDate, String priority) {
+        this.id = UUID.randomUUID();
         this.title = title;
         this.description = description;
         this.dueDate = dueDate;
         this.priority = priority;
+    }
+
+    public UUID getId() {
+        return id;
     }
 
     public String getTitle() {
