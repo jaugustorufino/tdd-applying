@@ -58,4 +58,24 @@ public class TaskTest {
         Task differentTask = new Task("Other Title", "Other Description", "20/08/2023", "Other Priority");
         assertNotEquals(task.hashCode(), differentTask.hashCode());
     }
+
+    @Test
+    public void testToString() {
+        String expectedStringTask = "Task #" + task.getId() + ": " +
+                "\n Title: " + task.getTitle() +
+                "\nDescription: " + task.getDescription() +
+                "\nDue Date: " + task.getDueDate() +
+                "\nPriority: " + task.getPriority();
+
+        assertEquals(expectedStringTask, task.toString());
+
+        Task otherTask = new Task("Other Title", "Other Description", "20/08/2023", "Other Priority");
+        String expectedStringOtherTask = "Task #" + otherTask.getId() + ": " +
+                "\n Title: " + otherTask.getTitle() +
+                "\nDescription: " + otherTask.getDescription() +
+                "\nDue Date: " + otherTask.getDueDate() +
+                "\nPriority: " + otherTask.getPriority();
+
+        assertEquals(expectedStringOtherTask, otherTask.toString());
+    }
 }
