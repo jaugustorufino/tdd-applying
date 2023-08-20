@@ -14,6 +14,10 @@ public class TaskList {
         this.tasks.put(newTask.getId(), newTask);
     }
 
+    public Task findTask(UUID id) {
+        return this.tasks.get(id);
+    }
+
     public int size() {
         return tasks.size();
     }
