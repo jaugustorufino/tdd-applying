@@ -10,7 +10,7 @@ import java.util.List;
 
 public class PaymentProcessorTest {
 
-    private Invoice faturaPaga;
+    private Invoice fatura;
     private Invoice faturaNaoPaga;
     private List<PaymentSlip> listaDeBoletosFaturaPaga;
     private List<PaymentSlip> listaDeBoletosFaturaNaoPaga;
@@ -18,8 +18,7 @@ public class PaymentProcessorTest {
 
     @BeforeEach
     public void init() {
-        faturaPaga = new Invoice("José", 1500.00, "12312023");
-        faturaNaoPaga = new Invoice("José", 1200.00, "12312023");
+        fatura = new Invoice("José", 1500.00, "12312023");
         listaDeBoletosFaturaPaga = new ArrayList<>(Arrays.asList(
                 new PaymentSlip("91232341231014", "12152023", 500.00),
                 new PaymentSlip("82342341231012", "12102023", 400.00),
@@ -34,17 +33,17 @@ public class PaymentProcessorTest {
 
     @Test
     public void testProcessaFaturaPaga() {
-        processador.processaBoletos(faturaPaga, listaDeBoletosFaturaPaga);
+        processador.processaBoletos(fatura, listaDeBoletosFaturaPaga);
 
-        assertEquals(faturaPaga.getStatus(), InvoiceStatus.PAGA);
-        assertEquals(faturaPaga.getPagamentos().size(), 3);
+        assertEquals(fatura.getStatus(), InvoiceStatus.PAGA);
+        assertEquals(fatura.getPagamentos().size(), 3);
     }
 
     @Test
     public void testProcessaFaturaNaoPaga() {
-        processador.processaBoletos(faturaNaoPaga, listaDeBoletosFaturaNaoPaga);
+        processador.processaBoletos(fatura, listaDeBoletosFaturaNaoPaga);
 
-        assertEquals(faturaNaoPaga.getStatus(), InvoiceStatus.NAO_PAGA);
-        assertEquals(faturaNaoPaga.getPagamentos().size(), 2);
+        assertEquals(fatura.getStatus(), InvoiceStatus.NAO_PAGA);
+        assertEquals(fatura.getPagamentos().size(), 2);
     }
 }
