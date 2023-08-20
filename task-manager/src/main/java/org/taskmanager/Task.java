@@ -1,5 +1,6 @@
 package org.taskmanager;
 
+import java.util.Objects;
 import java.util.UUID;
 
 public class Task {
@@ -10,6 +11,14 @@ public class Task {
     private String description;
     private String dueDate;
     private String priority;
+
+    public Task(UUID id, String title, String description, String dueDate, String priority) {
+        this.id = id;
+        this.title = title;
+        this.description = description;
+        this.dueDate = dueDate;
+        this.priority = priority;
+    }
 
     public Task(String title, String description, String dueDate, String priority) {
         this.id = UUID.randomUUID();
@@ -53,5 +62,13 @@ public class Task {
 
     public void setPriority(String priority) {
         this.priority = priority;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Task task = (Task) o;
+        return Objects.equals(id, task.id);
     }
 }
