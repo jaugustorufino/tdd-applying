@@ -71,4 +71,9 @@ public class Task {
         Task task = (Task) o;
         return Objects.equals(id, task.id);
     }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id);
+    }
 }
