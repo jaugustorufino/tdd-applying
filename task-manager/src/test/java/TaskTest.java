@@ -1,4 +1,4 @@
-import org.junit.jupiter.api.Assertions;
+import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Test;
 import org.taskmanager.Task;
 
@@ -8,12 +8,12 @@ public class TaskTest {
     public void testTaskCreation() {
         Task task = new Task("Title", "Description", "19/02/2023", "Priority");
 
-        Assertions.assertNotNull(task);
+        assertNotNull(task);
 
-        Assertions.assertEquals(task.getTitle(), "Title");
-        Assertions.assertEquals(task.getDescription(), "Description");
-        Assertions.assertEquals(task.getDueDate(), "19/02/2023");
-        Assertions.assertEquals(task.getPriority(), "Priority");
+        assertEquals("Title", task.getTitle());
+        assertEquals("Description", task.getDescription());
+        assertEquals("19/02/2023", task.getDueDate());
+        assertEquals("Priority", task.getPriority());
     }
 
     @Test
@@ -25,9 +25,9 @@ public class TaskTest {
         task.setDueDate("29/05/2023");
         task.setPriority("New Priority");
 
-        Assertions.assertEquals(task.getTitle(), "New Title");
-        Assertions.assertEquals(task.getDescription(), "New Description");
-        Assertions.assertEquals(task.getDueDate(), "29/05/2023");
-        Assertions.assertEquals(task.getPriority(), "New Priority");
+        assertEquals("New Title", task.getTitle());
+        assertEquals("New Description", task.getDescription());
+        assertEquals("29/05/2023", task.getDueDate());
+        assertEquals("New Priority", task.getPriority());
     }
 }

@@ -1,4 +1,4 @@
-import org.junit.jupiter.api.Assertions;
+import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Test;
 import org.taskmanager.TaskList;
 
@@ -7,12 +7,12 @@ public class TaskListTest {
     @Test
     public void testTaskListCreation() {
         TaskList taskList = new TaskList();
-        Assertions.assertNotNull(taskList);
+        assertNotNull(taskList);
     }
 
     @Test
-    public void testTaskListCreationWithEmptyTasks() {
+    public void testEmptyTaskListOnCreation() {
         TaskList taskList = new TaskList();
-        Assertions.assertEquals(taskList.size(), 0);
+        assertEquals(0, taskList.size());
     }
 }
