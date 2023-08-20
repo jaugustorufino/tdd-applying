@@ -9,7 +9,7 @@ public class PaymentProcessorTest {
     public void testFatura() {
         Invoice fatura = new Invoice("José", 1500.00, "12312023");
 
-        assertEquals(fatura.getNomeDoCliente(), "José");
+        assertEquals(fatura.getNomeCliente(), "José");
         assertEquals(fatura.getValor(), 1500.00);
         assertEquals(fatura.getData(), "12312023");
     }
