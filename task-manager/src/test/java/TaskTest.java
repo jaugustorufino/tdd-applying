@@ -49,4 +49,13 @@ public class TaskTest {
         Task differentTask = new Task("Other Title", "Other Description", "20/08/2023", "Other Priority");
         assertNotEquals(task, differentTask);
     }
+
+    @Test
+    public void testTaskHashCode() {
+        Task otherTask = new Task(task.getId(), "Other Title", "Other Description", "20/08/2023", "Other Priority");
+        assertEquals(task.hashCode(), otherTask.hashCode());
+
+        Task differentTask = new Task("Other Title", "Other Description", "20/08/2023", "Other Priority");
+        assertNotEquals(task.hashCode(), differentTask.hashCode());
+    }
 }
