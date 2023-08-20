@@ -9,4 +9,10 @@ public class TaskListTest {
         TaskList taskList = new TaskList();
         Assertions.assertNotNull(taskList);
     }
+
+    @Test
+    public void testTaskListCreationWithEmptyTasks() {
+        TaskList taskList = new TaskList();
+        Assertions.assertEquals(taskList.size(), 0);
+    }
 }
