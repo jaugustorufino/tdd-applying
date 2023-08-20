@@ -30,4 +30,12 @@ public class TaskTest {
         assertEquals("29/05/2023", task.getDueDate());
         assertEquals("New Priority", task.getPriority());
     }
+
+    @Test
+    public void testTaskUniqueness() {
+        Task task = new Task("Title", "Description", "19/02/2023", "Priority");
+        Task otherTask = new Task("Other Title", "Other Description", "20/08/2023", "Other Priority");
+
+        assertNotEquals(task.getId(), otherTask.getId());
+    }
 }
