@@ -34,7 +34,7 @@ public class PaymentProcessorTest {
 
     @Test
     public void testProcessaFaturaPaga() {
-        processador.processaBoletos(faturaPaga, listaDeBoletos);
+        processador.processaBoletos(faturaPaga, listaDeBoletosFaturaPaga);
 
         assertEquals(faturaPaga.getStatus(), InvoiceStatus.PAGA);
         assertEquals(faturaPaga.getPagamentos().size(), 3);
@@ -42,7 +42,7 @@ public class PaymentProcessorTest {
 
     @Test
     public void testProcessaFaturaNaoPaga() {
-        processador.processaBoletos(faturaNaoPaga, listaDeBoletos);
+        processador.processaBoletos(faturaNaoPaga, listaDeBoletosFaturaNaoPaga);
 
         assertEquals(faturaNaoPaga.getStatus(), InvoiceStatus.PAGA);
         assertEquals(faturaNaoPaga.getPagamentos().size(), 2);
