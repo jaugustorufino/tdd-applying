@@ -1,9 +1,7 @@
 import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Test;
 
-import java.util.Arrays;
-
-public class PaymentProcessorTest {
+public class InvoiceTest {
 
     @Test
     public void testFatura() {
