@@ -89,4 +89,19 @@ public class TaskListTest {
         assertEquals(updatedTask, task);
         assertEquals(TaskPriority.LOW, task.getPriority());
     }
+
+    @Test
+    public void testListTasksSortedByPriority() {
+        Task task1 = new Task("Title1", "Description1", "19/02/2023", TaskPriority.MEDIUM);
+        Task task2 = new Task("Title2", "Description2", "19/02/2023", TaskPriority.HIGH);
+        Task task3 = new Task("Title3", "Description3", "19/02/2023", TaskPriority.LOW);
+
+        taskList.addTask(task1);
+        taskList.addTask(task2);
+        taskList.addTask(task3);
+
+        String sortedTaskList = taskList.listSortedTasks();
+        String expectedSortedTaskList = task2.toString() + "\n\n" + task1.toString() + "\n\n" + task3.toString();
+        assertEquals(expectedSortedTaskList, sortedTaskList);
+    }
 }
