@@ -3,7 +3,8 @@ import java.util.List;
 
 public class Invoice {
     private String nomeCliente;
-    private double valor;
+    private final double valor;
+    private double valorAtual;
     private String data;
     private InvoiceStatus status;
     private List<Payment> pagamentos;
@@ -24,6 +25,10 @@ public class Invoice {
         return this.valor;
     }
 
+    public double getValorAtual() {
+        return this.valorAtual;
+    }
+
     public String getData() {
         return this.data;
     }
@@ -38,5 +43,10 @@ public class Invoice {
 
     public List<Payment> getPagamentos() {
         return this.pagamentos;
+    }
+
+    public void addPagamento(Payment pagamento) {
+        this.pagamentos.add(pagamento);
+        this.valorAtual = this.valorAtual - pagamento.getValorPago();
     }
 }
