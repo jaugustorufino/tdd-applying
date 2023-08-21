@@ -62,7 +62,7 @@ public class TaskTest {
     @Test
     public void testToString() {
         String expectedStringTask = "Task #" + task.getId() + ": " +
-                "\n Title: " + task.getTitle() +
+                "\nTitle: " + task.getTitle() +
                 "\nDescription: " + task.getDescription() +
                 "\nDue Date: " + task.getDueDate() +
                 "\nPriority: " + task.getPriority();

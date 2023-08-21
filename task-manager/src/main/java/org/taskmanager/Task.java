@@ -80,7 +80,7 @@ public class Task {
     @Override
     public String toString() {
         return "Task #" + id + ": " +
-                "\n Title: " + title +
+                "\nTitle: " + title +
                 "\nDescription: " + description +
                 "\nDue Date: " + dueDate +
                 "\nPriority: " + priority;
