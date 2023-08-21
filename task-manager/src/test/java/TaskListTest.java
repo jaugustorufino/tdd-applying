@@ -6,6 +6,8 @@ import org.taskmanager.Task;
 import org.taskmanager.TaskList;
 import org.taskmanager.TaskPriority;
 
+import java.time.LocalDate;
+
 public class TaskListTest {
 
     private TaskList taskList;
@@ -27,7 +29,7 @@ public class TaskListTest {
 
     @Test
     public void testAddTask() {
-        Task task = new Task("Title", "Description", "19/02/2023", TaskPriority.HIGH);
+        Task task = new Task("Title", "Description", LocalDate.now(), TaskPriority.HIGH);
         taskList.addTask(task);
 
         assertEquals(1, taskList.size());
@@ -35,12 +37,12 @@ public class TaskListTest {
 
     @Test
     public void testFindTask() {
-        Task task = new Task("Title", "Description", "19/02/2023", TaskPriority.HIGH);
+        Task task = new Task("Title", "Description", LocalDate.now(), TaskPriority.HIGH);
         taskList.addTask(task);
 
         assertEquals(taskList.findTask(task.getId()), task);
 
-        Task otherTask = new Task("Other Title", "Other Description", "20/08/2023", TaskPriority.MEDIUM);
+        Task otherTask = new Task("Other Title", "Other Description", LocalDate.now().plusDays(1), TaskPriority.MEDIUM);
         taskList.addTask(otherTask);
 
         assertEquals(taskList.findTask(otherTask.getId()), otherTask);
@@ -48,10 +50,10 @@ public class TaskListTest {
 
     @Test
     public void testUpdateTaskById() {
-        Task taskToUpdate = new Task("Title", "Description", "19/02/2023", TaskPriority.HIGH);
+        Task taskToUpdate = new Task("Title", "Description", LocalDate.now(), TaskPriority.HIGH);
         taskList.addTask(taskToUpdate);
 
-        Task updatedTask = new Task("Other Title", "Other Description", "20/08/2023", TaskPriority.MEDIUM);
+        Task updatedTask = new Task("Other Title", "Other Description", LocalDate.now().plusDays(1), TaskPriority.MEDIUM);
         Task task = taskList.updateTask(taskToUpdate.getId(), updatedTask);
 
         assertEquals(task.getId(), taskToUpdate.getId());
@@ -65,7 +67,7 @@ public class TaskListTest {
 
     @Test
     public void testDeleteTaskById() {
-        Task taskToDelete = new Task("Title", "Description", "19/02/2023", TaskPriority.HIGH);
+        Task taskToDelete = new Task("Title", "Description", LocalDate.now(), TaskPriority.HIGH);
         taskList.addTask(taskToDelete);
 
         Task task = taskList.deleteTask(taskToDelete.getId());
@@ -76,7 +78,7 @@ public class TaskListTest {
 
     @Test
     public void testUpdateTaskPriorityById() {
-        Task highTask = new Task("Title", "Description", "19/02/2023", TaskPriority.HIGH);
+        Task highTask = new Task("Title", "Description", LocalDate.now(), TaskPriority.HIGH);
         taskList.addTask(highTask);
 
         Task task = taskList.findTask(highTask.getId());
@@ -92,9 +94,9 @@ public class TaskListTest {
 
     @Test
     public void testListTasksSortedByPriority() {
-        Task task1 = new Task("Title1", "Description1", "19/02/2023", TaskPriority.MEDIUM);
-        Task task2 = new Task("Title2", "Description2", "19/02/2023", TaskPriority.HIGH);
-        Task task3 = new Task("Title3", "Description3", "19/02/2023", TaskPriority.LOW);
+        Task task1 = new Task("Title1", "Description1", LocalDate.now(), TaskPriority.MEDIUM);
+        Task task2 = new Task("Title2", "Description2", LocalDate.now(), TaskPriority.HIGH);
+        Task task3 = new Task("Title3", "Description3", LocalDate.now(), TaskPriority.LOW);
 
         taskList.addTask(task1);
         taskList.addTask(task2);
@@ -104,4 +106,20 @@ public class TaskListTest {
         String expectedSortedTaskList = task2.toString() + "\n\n" + task1.toString() + "\n\n" + task3.toString();
         assertEquals(expectedSortedTaskList, sortedTaskList);
     }
+
+    @Test
+    public void testListTasksSortedByDueDate() {
+        Task task1 = new Task("Title1", "Description1", LocalDate.now().plusDays(2), TaskPriority.LOW);
+        Task task2 = new Task("Title2", "Description2", LocalDate.now(), TaskPriority.LOW);
+        Task task3 = new Task("Title3", "Description3", LocalDate.now().plusDays(4), TaskPriority.LOW);
+
+        taskList.addTask(task1);
+        taskList.addTask(task2);
+        taskList.addTask(task3);
+
+        String sortedTaskList = taskList.listSortedTasks();
+        String expectedSortedTaskList = task2.toString() + "\n\n" + task1.toString() + "\n\n" + task3.toString();
+        assertEquals(expectedSortedTaskList, sortedTaskList);
+    }
+
 }
