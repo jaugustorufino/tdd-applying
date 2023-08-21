@@ -122,4 +122,20 @@ public class TaskListTest {
         assertEquals(expectedSortedTaskList, sortedTaskList);
     }
 
+    @Test
+    public void testListTasksSortedByPriorityAndDueDate() {
+        Task task1 = new Task("Title1", "Description1", LocalDate.now().plusDays(2), TaskPriority.LOW);
+        Task task2 = new Task("Title2", "Description2", LocalDate.now().plusDays(5), TaskPriority.MEDIUM);
+        Task task3 = new Task("Title3", "Description3", LocalDate.now(), TaskPriority.HIGH);
+        Task task4 = new Task("Title4", "Description4", LocalDate.now().plusDays(4), TaskPriority.HIGH);
+
+        taskList.addTask(task1);
+        taskList.addTask(task2);
+        taskList.addTask(task3);
+        taskList.addTask(task4);
+
+        String sortedTaskList = taskList.listSortedTasks();
+        String expectedSortedTaskList = task3.toString() + "\n\n" + task4.toString() + "\n\n" + task2.toString() + "\n\n" + task1.toString();
+        assertEquals(expectedSortedTaskList, sortedTaskList);
+    }
 }
