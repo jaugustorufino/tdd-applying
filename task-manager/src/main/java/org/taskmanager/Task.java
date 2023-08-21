@@ -10,9 +10,9 @@ public class Task {
     private String title;
     private String description;
     private String dueDate;
-    private String priority;
+    private TaskPriority priority;
 
-    public Task(UUID id, String title, String description, String dueDate, String priority) {
+    public Task(UUID id, String title, String description, String dueDate, TaskPriority priority) {
         this.id = id;
         this.title = title;
         this.description = description;
@@ -20,7 +20,7 @@ public class Task {
         this.priority = priority;
     }
 
-    public Task(String title, String description, String dueDate, String priority) {
+    public Task(String title, String description, String dueDate, TaskPriority priority) {
         this.id = UUID.randomUUID();
         this.title = title;
         this.description = description;
@@ -56,11 +56,11 @@ public class Task {
         this.dueDate = dueDate;
     }
 
-    public String getPriority() {
+    public TaskPriority getPriority() {
         return priority;
     }
 
-    public void setPriority(String priority) {
+    public void setPriority(TaskPriority priority) {
         this.priority = priority;
     }
 

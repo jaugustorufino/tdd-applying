@@ -27,7 +27,7 @@ public class TaskListTest {
 
     @Test
     public void testAddTask() {
-        Task task = new Task("Title", "Description", "19/02/2023", "Priority");
+        Task task = new Task("Title", "Description", "19/02/2023", TaskPriority.HIGH);
         taskList.addTask(task);
 
         assertEquals(1, taskList.size());
@@ -35,12 +35,12 @@ public class TaskListTest {
 
     @Test
     public void testFindTask() {
-        Task task = new Task("Title", "Description", "19/02/2023", "Priority");
+        Task task = new Task("Title", "Description", "19/02/2023", TaskPriority.HIGH);
         taskList.addTask(task);
 
         assertEquals(taskList.findTask(task.getId()), task);
 
-        Task otherTask = new Task("Other Title", "Other Description", "20/08/2023", "Other Priority");
+        Task otherTask = new Task("Other Title", "Other Description", "20/08/2023", TaskPriority.MEDIUM);
         taskList.addTask(otherTask);
 
         assertEquals(taskList.findTask(otherTask.getId()), otherTask);
@@ -48,10 +48,10 @@ public class TaskListTest {
 
     @Test
     public void testUpdateTaskById() {
-        Task taskToUpdate = new Task("Title", "Description", "19/02/2023", "Priority");
+        Task taskToUpdate = new Task("Title", "Description", "19/02/2023", TaskPriority.HIGH);
         taskList.addTask(taskToUpdate);
 
-        Task updatedTask = new Task("Other Title", "Other Description", "20/08/2023", "Other Priority");
+        Task updatedTask = new Task("Other Title", "Other Description", "20/08/2023", TaskPriority.MEDIUM);
         Task task = taskList.updateTask(taskToUpdate.getId(), updatedTask);
 
         assertEquals(task.getId(), taskToUpdate.getId());
@@ -65,7 +65,7 @@ public class TaskListTest {
 
     @Test
     public void testDeleteTaskById() {
-        Task taskToDelete = new Task("Title", "Description", "19/02/2023", "Priority");
+        Task taskToDelete = new Task("Title", "Description", "19/02/2023", TaskPriority.HIGH);
         taskList.addTask(taskToDelete);
 
         Task task = taskList.deleteTask(taskToDelete.getId());

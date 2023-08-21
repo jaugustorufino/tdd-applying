@@ -33,6 +33,11 @@ public class TaskList {
         return this.tasks.remove(id);
     }
 
+    public void updateTaskPriority(UUID id, TaskPriority newTaskPriority) {
+        Task taskToUpdate = this.findTask(id);
+        taskToUpdate.setPriority(newTaskPriority);
+    }
+
     public int size() {
         return tasks.size();
     }
