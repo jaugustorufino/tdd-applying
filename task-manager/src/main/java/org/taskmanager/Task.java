@@ -1,5 +1,6 @@
 package org.taskmanager;
 
+import java.time.LocalDate;
 import java.util.Objects;
 import java.util.UUID;
 
@@ -9,10 +10,10 @@ public class Task implements Comparable<Task> {
 
     private String title;
     private String description;
-    private String dueDate;
+    private LocalDate dueDate;
     private TaskPriority priority;
 
-    public Task(UUID id, String title, String description, String dueDate, TaskPriority priority) {
+    public Task(UUID id, String title, String description, LocalDate dueDate, TaskPriority priority) {
         this.id = id;
         this.title = title;
         this.description = description;
@@ -20,7 +21,7 @@ public class Task implements Comparable<Task> {
         this.priority = priority;
     }
 
-    public Task(String title, String description, String dueDate, TaskPriority priority) {
+    public Task(String title, String description, LocalDate dueDate, TaskPriority priority) {
         this.id = UUID.randomUUID();
         this.title = title;
         this.description = description;
@@ -48,11 +49,11 @@ public class Task implements Comparable<Task> {
         this.description = description;
     }
 
-    public String getDueDate() {
+    public LocalDate getDueDate() {
         return dueDate;
     }
 
-    public void setDueDate(String dueDate) {
+    public void setDueDate(LocalDate dueDate) {
         this.dueDate = dueDate;
     }
 
@@ -88,6 +89,12 @@ public class Task implements Comparable<Task> {
 
     @Override
     public int compareTo(Task otherTask) {
-        return Integer.compare(otherTask.getPriority().getValor(), this.getPriority().getValor());
+        int priorityComparison = Integer.compare(otherTask.getPriority().getValor(), this.getPriority().getValor());
+
+        if (priorityComparison != 0) {
+            return priorityComparison;
+        }
+
+        return this.getDueDate().compareTo(otherTask.getDueDate());
     }
 }
