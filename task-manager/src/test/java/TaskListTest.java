@@ -4,6 +4,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.taskmanager.Task;
 import org.taskmanager.TaskList;
+import org.taskmanager.TaskPriority;
 
 public class TaskListTest {
 
@@ -71,5 +72,21 @@ public class TaskListTest {
         assertEquals(taskToDelete, task);
 
         assertNull(taskList.findTask(taskToDelete.getId()));
+    }
+
+    @Test
+    public void testUpdateTaskPriorityById() {
+        Task highTask = new Task("Title", "Description", "19/02/2023", TaskPriority.HIGH);
+        taskList.addTask(highTask);
+
+        Task task = taskList.findTask(highTask.getId());
+        assertEquals(highTask, task);
+        assertEquals(TaskPriority.HIGH, task.getPriority());
+
+        taskList.updateTaskPriority(task.getId(), TaskPriority.LOW);
+
+        Task updatedTask = taskList.findTask(highTask.getId());
+        assertEquals(updatedTask, task);
+        assertEquals(TaskPriority.LOW, task.getPriority());
     }
 }
