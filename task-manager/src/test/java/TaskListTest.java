@@ -18,12 +18,8 @@ public class TaskListTest {
     }
 
     @Test
-    public void testTaskListCreation() {
-        assertNotNull(taskList);
-    }
-
-    @Test
     public void testEmptyTaskListOnCreation() {
+        assertNotNull(taskList);
         assertEquals(0, taskList.size());
     }
 
