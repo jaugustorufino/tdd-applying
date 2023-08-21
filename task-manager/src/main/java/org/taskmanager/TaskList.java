@@ -18,6 +18,17 @@ public class TaskList {
         return this.tasks.get(id);
     }
 
+    public Task updateTask(UUID id, Task updatedTask) {
+        Task taskToUpdate = this.findTask(id);
+
+        taskToUpdate.setTitle(updatedTask.getTitle());
+        taskToUpdate.setDescription(updatedTask.getDescription());
+        taskToUpdate.setDueDate(updatedTask.getDueDate());
+        taskToUpdate.setPriority(updatedTask.getPriority());
+
+        return taskToUpdate;
+    }
+
     public int size() {
         return tasks.size();
     }
