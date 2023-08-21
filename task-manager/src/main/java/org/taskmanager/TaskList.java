@@ -29,6 +29,10 @@ public class TaskList {
         return taskToUpdate;
     }
 
+    public Task deleteTask(UUID id) {
+        return this.tasks.remove(id);
+    }
+
     public int size() {
         return tasks.size();
     }
