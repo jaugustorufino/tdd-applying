@@ -61,4 +61,15 @@ public class TaskListTest {
 
         assertEquals(taskList.findTask(taskToUpdate.getId()), task);
     }
+
+    @Test
+    public void testDeleteTaskById() {
+        Task taskToDelete = new Task("Title", "Description", "19/02/2023", "Priority");
+        taskList.addTask(taskToDelete);
+
+        Task task = taskList.deleteTask(taskToDelete.getId());
+        assertEquals(taskToDelete, task);
+
+        assertNull(taskList.findTask(taskToDelete.getId()));
+    }
 }
