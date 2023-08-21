@@ -38,6 +38,26 @@ public class TaskList {
         taskToUpdate.setPriority(newTaskPriority);
     }
 
+    public String listSortedTasks() {
+        List<Task> list = new ArrayList<>(this.tasks.values());
+        System.out.println(list.get(0));
+
+        Collections.sort(list);
+        System.out.println(list.get(0));
+
+
+        String stringList = "";
+
+        for (int i = 0; i < list.size(); i++) {
+            stringList = stringList.concat(list.get(i).toString());
+            if (i < list.size() - 1) {
+                stringList = stringList.concat("\n\n");
+            }
+        }
+
+        return stringList;
+    }
+
     public int size() {
         return tasks.size();
     }

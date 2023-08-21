@@ -3,7 +3,7 @@ package org.taskmanager;
 import java.util.Objects;
 import java.util.UUID;
 
-public class Task {
+public class Task implements Comparable<Task> {
 
     private UUID id;
 
@@ -84,5 +84,10 @@ public class Task {
                 "\nDescription: " + description +
                 "\nDue Date: " + dueDate +
                 "\nPriority: " + priority;
+    }
+
+    @Override
+    public int compareTo(Task otherTask) {
+        return Integer.compare(otherTask.getPriority().getValor(), this.getPriority().getValor());
     }
 }
