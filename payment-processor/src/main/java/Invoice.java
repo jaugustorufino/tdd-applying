@@ -12,6 +12,7 @@ public class Invoice {
     public Invoice(String nome, double valor, String data) {
         this.nomeCliente = nome;
         this.valor = valor;
+        this.valorAtual = valor;
         this.data = data;
         this.status = InvoiceStatus.NAO_PAGA;
         this.pagamentos = new ArrayList<>();
