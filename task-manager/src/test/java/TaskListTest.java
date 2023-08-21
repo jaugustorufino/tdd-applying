@@ -44,4 +44,21 @@ public class TaskListTest {
 
         assertEquals(taskList.findTask(otherTask.getId()), otherTask);
     }
+
+    @Test
+    public void testUpdateTaskById() {
+        Task taskToUpdate = new Task("Title", "Description", "19/02/2023", "Priority");
+        taskList.addTask(taskToUpdate);
+
+        Task updatedTask = new Task("Other Title", "Other Description", "20/08/2023", "Other Priority");
+        Task task = taskList.updateTask(taskToUpdate.getId(), updatedTask);
+
+        assertEquals(task.getId(), taskToUpdate.getId());
+        assertEquals(task.getTitle(), updatedTask.getTitle());
+        assertEquals(task.getDescription(), updatedTask.getDescription());
+        assertEquals(task.getDueDate(), updatedTask.getDueDate());
+        assertEquals(task.getPriority(), updatedTask.getPriority());
+
+        assertEquals(taskList.findTask(taskToUpdate.getId()), task);
+    }
 }
