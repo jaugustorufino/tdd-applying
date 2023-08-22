@@ -17,8 +17,6 @@ public class TaskTest {
 
     @Test
     public void testTaskCreation() {
-        assertNotNull(task);
-
         assertEquals("Title", task.getTitle());
         assertEquals("Description", task.getDescription());
         assertEquals(LocalDate.now(), task.getDueDate());
