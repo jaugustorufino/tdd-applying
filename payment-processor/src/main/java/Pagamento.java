@@ -1,11 +1,11 @@
 import java.util.Date;
 
-public class Payment {
+public class Pagamento {
     private double valorPago;
     private Date data;
-    private PaymentType tipo;
+    private TipoPagamento tipo;
 
-    public Payment(double valorPago, PaymentType tipo) {
+    public Pagamento(double valorPago, TipoPagamento tipo) {
         this.valorPago = valorPago;
         this.data = new Date(System.currentTimeMillis());;
         this.tipo = tipo;
@@ -19,7 +19,7 @@ public class Payment {
         return data;
     }
 
-    public PaymentType getTipo() {
+    public TipoPagamento getTipo() {
         return tipo;
     }
 }

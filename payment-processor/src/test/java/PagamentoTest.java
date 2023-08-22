@@ -2,13 +2,13 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class PaymentTest {
+public class PagamentoTest {
 
     @Test
     public void testPagamento() {
-        Payment pagamentoBoleto = new Payment(300.00, PaymentType.BOLETO);
+        Pagamento pagamentoBoleto = new Pagamento(300.00, TipoPagamento.BOLETO);
 
         assertEquals(pagamentoBoleto.getValorPago(), 300);
-        assertEquals(pagamentoBoleto.getTipo(), PaymentType.BOLETO);
+        assertEquals(pagamentoBoleto.getTipo(), TipoPagamento.BOLETO);
     }
 }

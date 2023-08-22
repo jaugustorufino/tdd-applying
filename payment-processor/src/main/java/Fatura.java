@@ -1,20 +1,20 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public class Invoice {
+public class Fatura {
     private String nomeCliente;
     private final double valor;
     private double valorAtual;
     private String data;
-    private InvoiceStatus status;
-    private List<Payment> pagamentos;
+    private StatusFatura status;
+    private List<Pagamento> pagamentos;
 
-    public Invoice(String nome, double valor, String data) {
+    public Fatura(String nome, double valor, String data) {
         this.nomeCliente = nome;
         this.valor = valor;
         this.valorAtual = valor;
         this.data = data;
-        this.status = InvoiceStatus.NAO_PAGA;
+        this.status = StatusFatura.NAO_PAGA;
         this.pagamentos = new ArrayList<>();
     }
 
@@ -34,19 +34,19 @@ public class Invoice {
         return this.data;
     }
 
-    public InvoiceStatus getStatus() {
+    public StatusFatura getStatus() {
         return this.status;
     }
 
-    public void setStatus(InvoiceStatus status) {
+    public void setStatus(StatusFatura status) {
         this.status = status;
     }
 
-    public List<Payment> getPagamentos() {
+    public List<Pagamento> getPagamentos() {
         return this.pagamentos;
     }
 
-    public void addPagamento(Payment pagamento) {
+    public void addPagamento(Pagamento pagamento) {
         this.pagamentos.add(pagamento);
         this.valorAtual = this.valorAtual - pagamento.getValorPago();
     }

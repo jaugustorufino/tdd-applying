@@ -1,9 +1,9 @@
-public class PaymentSlip {
+public class Boleto {
     private String codigo;
     private String data;
     private double valor;
 
-    public PaymentSlip(String codigo, String data, double valor) {
+    public Boleto(String codigo, String data, double valor) {
         this.codigo = codigo;
         this.data = data;
         this.valor = valor;

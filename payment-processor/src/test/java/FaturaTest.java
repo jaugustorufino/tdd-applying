@@ -1,11 +1,11 @@
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
-public class InvoiceTest {
+public class FaturaTest {
 
     @Test
     public void testFatura() {
-        Invoice fatura = new Invoice("José", 1500.00, "12312023");
+        Fatura fatura = new Fatura("José", 1500.00, "12312023");
 
         assertEquals(fatura.getNomeCliente(), "José");
         assertEquals(fatura.getValor(), 1500.00);
@@ -14,8 +14,8 @@ public class InvoiceTest {
 
     @Test
     public void testAddPagamentoBoleto() {
-        Invoice fatura = new Invoice("José", 1500.00, "12312023");
-        Payment pagamentoBoleto = new Payment(300.00, PaymentType.BOLETO);
+        Fatura fatura = new Fatura("José", 1500.00, "12312023");
+        Pagamento pagamentoBoleto = new Pagamento(300.00, TipoPagamento.BOLETO);
         fatura.addPagamento(pagamentoBoleto);
 
         assertEquals(fatura.getPagamentos().get(0), pagamentoBoleto);
