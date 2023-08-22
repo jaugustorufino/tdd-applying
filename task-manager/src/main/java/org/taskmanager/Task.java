@@ -65,6 +65,13 @@ public class Task implements Comparable<Task> {
         this.priority = priority;
     }
 
+    public void updateAll(Task newTask) {
+        this.title = newTask.getTitle();
+        this.description = newTask.getDescription();
+        this.dueDate = newTask.getDueDate();
+        this.priority = newTask.getPriority();
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

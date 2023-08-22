@@ -24,11 +24,22 @@ public class TaskTest {
     }
 
     @Test
-    public void testTaskUpdate() {
+    public void testTaskUpdateBySetters() {
         task.setTitle("New Title");
         task.setDescription("New Description");
         task.setDueDate(LocalDate.now().plusDays(1));
         task.setPriority(TaskPriority.LOW);
+
+        assertEquals("New Title", task.getTitle());
+        assertEquals("New Description", task.getDescription());
+        assertEquals(LocalDate.now().plusDays(1), task.getDueDate());
+        assertEquals(TaskPriority.LOW, task.getPriority());
+    }
+
+    @Test
+    public void testTaskUpdateAll() {
+        Task newTask = new Task("New Title", "New Description", LocalDate.now().plusDays(1), TaskPriority.LOW);
+        task.updateAll(newTask);
 
         assertEquals("New Title", task.getTitle());
         assertEquals("New Description", task.getDescription());

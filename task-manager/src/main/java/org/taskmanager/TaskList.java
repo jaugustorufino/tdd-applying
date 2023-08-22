@@ -20,11 +20,7 @@ public class TaskList {
 
     public Task updateTask(UUID id, Task updatedTask) {
         Task taskToUpdate = this.findTask(id);
-
-        taskToUpdate.setTitle(updatedTask.getTitle());
-        taskToUpdate.setDescription(updatedTask.getDescription());
-        taskToUpdate.setDueDate(updatedTask.getDueDate());
-        taskToUpdate.setPriority(updatedTask.getPriority());
+        taskToUpdate.updateAll(updatedTask);
 
         return taskToUpdate;
     }
