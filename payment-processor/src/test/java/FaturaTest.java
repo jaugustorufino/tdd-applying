@@ -4,11 +4,11 @@ import static org.junit.jupiter.api.Assertions.*;
 public class FaturaTest {
 
     @Test
-    public void testFatura() {
+    public void testCriacaoFatura() {
         Fatura fatura = new Fatura("José", 1500.00, "12312023");
 
         assertEquals(fatura.getNomeCliente(), "José");
-        assertEquals(fatura.getValor(), 1500.00);
+        assertEquals(fatura.getValorTotal(), 1500.00);
         assertEquals(fatura.getData(), "12312023");
     }
 
