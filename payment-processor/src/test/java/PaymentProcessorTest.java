@@ -45,4 +45,13 @@ public class PaymentProcessorTest {
         assertEquals(fatura.getStatus(), InvoiceStatus.NAO_PAGA);
         assertEquals(fatura.getPagamentos().size(), 2);
     }
+
+    @Test
+    public void testCriacaoPagamento() {
+        processador.processaBoletos(fatura, listaDeBoletosFaturaNaoPaga);
+
+        assertEquals(fatura.getPagamentos().get(0).getValorPago(), 500.00);
+        assertEquals(fatura.getPagamentos().get(0).getTipo(), PaymentType.BOLETO);
+        assertEquals(fatura.getStatus(), InvoiceStatus.NAO_PAGA);
+    }
 }
