@@ -9,7 +9,7 @@ public class Pagamento {
 
     public Pagamento(double valorPago, TipoPagamento tipo) {
         this.valorPago = valorPago;
-        this.data = new Date(System.currentTimeMillis());;
+        this.data = new Date(System.currentTimeMillis());
         this.tipo = tipo;
     }
 
