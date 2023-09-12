@@ -1,17 +1,13 @@
 package org.example;
 
-import org.example.Fatura;
-import org.example.ProcessadorPagamentos;
-import org.example.StatusFatura;
-import org.example.TipoPagamento;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 
 public class ProcessadorPagamentosTest {
