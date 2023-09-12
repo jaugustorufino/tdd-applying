@@ -30,8 +30,10 @@ public class TaskListEquivalencePartitioningTest {
 
     @Test
     public void testNotAddTaskWithInvalidProps() {
-        Task task = new Task(null, "Description", LocalDate.now(), TaskPriority.HIGH);
-        taskList.addTask(task);
+        assertThrows(IllegalArgumentException.class, () -> {
+            Task task = new Task(null, "Description", LocalDate.now(), TaskPriority.HIGH);
+            taskList.addTask(task);
+        });
 
         assertEquals(0, taskList.size());
     }
