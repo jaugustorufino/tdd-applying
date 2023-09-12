@@ -1,3 +1,5 @@
+package org.example;
+
 public class Boleto {
     private String codigo;
     private String data;

@@ -1,3 +1,9 @@
+package org.example;
+
+import org.example.Fatura;
+import org.example.ProcessadorPagamentos;
+import org.example.StatusFatura;
+import org.example.TipoPagamento;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

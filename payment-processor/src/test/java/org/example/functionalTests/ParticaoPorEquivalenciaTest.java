@@ -1,3 +1,9 @@
+package org.example.functionalTests;
+
+import org.example.Boleto;
+import org.example.Fatura;
+import org.example.ProcessadorPagamentos;
+import org.example.StatusFatura;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

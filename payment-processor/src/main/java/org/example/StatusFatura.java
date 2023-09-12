@@ -1,3 +1,5 @@
+package org.example;
+
 public enum StatusFatura {
     NAO_PAGA("A fatura não foi paga."),
     PAGA("A fatura foi paga com sucesso.");

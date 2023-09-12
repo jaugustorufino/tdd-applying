@@ -1,3 +1,8 @@
+package org.example;
+
+import org.example.Fatura;
+import org.example.Pagamento;
+import org.example.TipoPagamento;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
