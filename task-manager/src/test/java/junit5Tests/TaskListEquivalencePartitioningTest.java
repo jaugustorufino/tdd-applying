@@ -12,6 +12,7 @@ import java.util.UUID;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+@DisplayName("Task List - Equivalence Partition")
 public class TaskListEquivalencePartitioningTest {
 
     private TaskList taskList;
